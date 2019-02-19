@@ -6,5 +6,7 @@ export interface ParsedString<T> extends String { }
  * @param object Object containing the object parts with replaceable values
  * @param skip Part of the object to skip when checking
  */
-export default function parseTemplate<T extends Object>(template: string, object: T): ParsedString<T>;
-export default function parseTemplate<T extends Object>(template: string, object: T, skip: string[]): ParsedString<T>;
+declare function parseTemplate<T = {}>(template: string, object: T): ParsedString<T>;
+declare function parseTemplate<T = {}>(template: string, object: T, skip: string[]): ParsedString<T>;
+
+export = parseTemplate;

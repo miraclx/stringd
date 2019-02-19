@@ -19,7 +19,7 @@ $ npm install stringd
 
 ``` javascript
 // CommonJS
-var stringd = require('stringd').default;
+var stringd = require('stringd');
 var result = stringd(template: string, object: {key: value, ...}, ignore?: string[]);
 
 // ES6
