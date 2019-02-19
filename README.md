@@ -34,9 +34,9 @@ Parse the `template` with the variables stated in `object`, ignore the variables
 # Examples
 ``` javascript
 stringd('Hello :{name}', {name: 'World'});
-// Hello world
+// Hello World
 
-stringd('{last}, :{first} :{last}', {last: 'Doe', first: 'John'});
+stringd(':{last}, :{first} :{last}', {last: 'Doe', first: 'John'});
 // Doe, John Doe
 ```
 
