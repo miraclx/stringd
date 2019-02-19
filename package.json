@@ -18,19 +18,13 @@
     "format",
     "formatting"
   ],
-  "author": {
-    "name": "Miraculous Owonubi",
-    "email": "omiraculous@gmail.com"
-  },
+  "author": "Miraculous Owonubi <omiraculous@gmail.com>",
   "maintainers": [
-    {
-      "name": "Miraculous Owonubi",
-      "email": "omiraculous@gmail.com"
-    }
+    "Miraculous Owonubi <omiraculous@gmail.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Miraclx/stringd.git"
+    "url": "git+https://github.com/Miraclx/stringd.git"
   },
   "bugs": {
     "url": "https://github.com/Miraclx/stringd/issues"
@@ -56,5 +50,11 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "jest": "^24.1.0"
-  }
+  },
+  "homepage": "https://github.com/Miraclx/stringd#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {}
 }
