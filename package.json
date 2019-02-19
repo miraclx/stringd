@@ -1,0 +1,57 @@
+{
+  "name": "stringd",
+  "version": "1.0.0",
+  "description": "A string variable parser for JavaScript",
+  "main": "lib/lib.js",
+  "types": "typings/lib.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "babel src -d lib"
+  },
+  "keywords": [
+    "print",
+    "printf",
+    "sprintf",
+    "string",
+    "output",
+    "parser",
+    "format",
+    "formatting"
+  ],
+  "author": {
+    "name": "Miraculous Owonubi",
+    "email": "omiraculous@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Miraculous Owonubi",
+      "email": "omiraculous@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Miraclx/stringd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Miraclx/stringd/issues"
+  },
+  "license": "Apache-2.0",
+  "babel": {
+    "presets": [
+      "airbnb",
+      "@babel/preset-env"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-airbnb": "^3.2.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "jest": "^24.1.0"
+  }
+}
