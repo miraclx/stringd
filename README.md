@@ -28,7 +28,7 @@ var result = stringd(template: string, object: {key: value, ...}, ignore?: strin
 ```
 
 # API
-## stringd(&lt;template&gt;, &lt;object&gt;[, ignore])
+## stringd(template, object[, ignore])
 Parse the `template` with the variables stated in `object`, ignore the variables defined in the `ignore` array
 
 # Examples
@@ -56,9 +56,9 @@ stringd('Hello ${name%}', {name: 'World'}); // Hello world
 ### Nesting
 ``` javascript
 assert.equal('John Davis', stringd(':{name}', {
-  name: ":{first} :{last}",
-  last: "Davis"
-  first: "John",
+  name: ':{first} :{last}',
+  last: 'Davis'
+  first: 'John',
 }));
 ```
 
@@ -118,20 +118,34 @@ assert.equal(
 );
 ```
 ## Development
+### Building
+Feel free to clone, use in adherance to the [license][license] and perhaps send pull requests
+```
+$ git clone https://github.com/Miraclx/stringd.git
+$ cd stringd
+$ npm install
+$ # hack on code
+$ npm run build
+$ npm test
+```
+### Testing
 Tests are executed with [Jest][jest]. To use it, simple run `npm install`, it will install
-Jest and its dependencies in your project's `node_modules` directory followed by `npm test`.
+Jest and its dependencies in your project's `node_modules` directory followed by `npm run build` and finally `npm test`.
 
 To run the tests:
 
 ```bash
-npm install
-npm test
+$ npm install
+$ npm run build
+$ npm test
 ```
 ## About
-### License: [Apache 2.0](LICENSE)
-### Miraculous Owonubi: ([email](mailto:omiraculous@gmail.com)) <https://github.com/Miraclx>
+License: [Apache 2.0][license]
+
+Miraculous Owonubi: [[email]](mailto:omiraculous@gmail.com) <https://github.com/Miraclx>
+
 
 [npm]:  https://github.com/npm/npm "The Node Package Manager"
-[node]: http://nodejs.org "The Node.JS platform"
 [jest]:  https://github.com/facebook/jest "Delightful JavaScript Testing"
 [printf]:  https://github.com/adaltas/node-printf
+[license]:  LICENSE "Apache 2.0 License"
