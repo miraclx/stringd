@@ -11,12 +11,16 @@
     "sourceType": "module",
     "ecmaVersion": 9
   },
-  "extends": ["eslint:recommended", "airbnb", "prettier"],
+  "extends": ["eslint:recommended", "airbnb-base", "prettier"],
   "plugins": ["prettier"],
   "rules": {
+    "no-bitwise": 0,
     "no-console": 0,
+    "no-sequences": 0,
     "no-cond-assign": 0,
     "no-new-require": 2,
+    "no-return-assign": 0,
+    "no-nested-ternary": 0,
     "no-unused-vars": [
       1,
       {
@@ -37,6 +41,7 @@
         "bracketSpacing": false
       }
     ],
+    "no-unused-expressions": 0,
     "no-template-curly-in-string": 2
   }
 }
