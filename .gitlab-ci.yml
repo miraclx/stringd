@@ -1,0 +1,31 @@
+image: node:8
+
+before_script:
+  - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+test:node:8:
+  script:
+    - npm run build
+    - npm test
+
+test:node:9:
+  image: node:9
+  script:
+    - npm run build
+    - npm test
+
+test:node:10:
+  image: node:10
+  script:
+    - npm run build
+    - npm test
+
+test:node:11:
+  image: node:11
+  script:
+    - npm run build
+    - npm test
