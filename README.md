@@ -58,7 +58,7 @@ stringd('Hello ${name%}', {name: 'World'}); // Hello World
 ``` javascript
 assert.equal('John Davis', stringd(':{name}', {
   name: ':{first} :{last}',
-  last: 'Davis'
+  last: 'Davis',
   first: 'John',
 }));
 ```
