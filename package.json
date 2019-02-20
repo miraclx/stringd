@@ -8,6 +8,11 @@
     "test": "jest",
     "build": "babel lib -d dist"
   },
+  "files": [
+    "lib/",
+    "test",
+    "typings"
+  ],
   "keywords": [
     "print",
     "printf",
@@ -51,7 +56,7 @@
   },
   "homepage": "https://github.com/Miraclx/stringd#readme",
   "directories": {
-    "lib": "dist",
+    "lib": "lib",
     "test": "test"
   },
   "dependencies": {}
