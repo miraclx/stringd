@@ -1,4 +1,4 @@
-import stringd from '../lib/lib';
+import stringd from '../dist/lib';
 
 test('very complex nesting, with exclusive recursion', () => {
   expect(
@@ -9,7 +9,7 @@ test('very complex nesting, with exclusive recursion', () => {
       misc: ':{data}',
       data: ':{name} :{all}',
       all: ':{name} :{misc} :{data} :{all} :{name} :{misc}',
-    })
+    }),
   ).toBe('James:{name} :{name} :{data} :{data} :{all} :{name} :{data}Jack :{data}');
 });
 
@@ -65,7 +65,7 @@ test('complex nesting', () => {
       age_data: 57,
       company: 'Apple',
       occupation: 'CEO',
-    })
+    }),
   ).toBe('Tim Cook is 57 years old and is CEO of Apple');
 });
 
@@ -85,6 +85,6 @@ test('functional evaluation', () => {
       contribution: 45,
       cash: ({contribution, months}) => contribution * months,
       'name:parsed': `:{greeting}, you have contributed $:{cash} in the span of :{duration}`,
-    })
+    }),
   ).toBe('Hello John Davis, you have contributed $585 in the span of 13 months');
 });
