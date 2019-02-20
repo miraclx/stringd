@@ -1,5 +1,6 @@
-STRING-D (NodeJS String Variable Parser)
+STRING-D
 ========================================
+> NodeJS String Variable Parser
 
 Create parsable strings using template formats by argument mapping.
 
@@ -44,12 +45,12 @@ stringd(':{last}, :{first} :{last}', {last: 'Doe', first: 'John'});
 ### Multi parse methods
 Whichever is more comfortable for you would work just fine
 ``` javascript
-stringd('Hello :{name}', {name: 'World'});  // Hello world
-stringd('Hello %{name}', {name: 'World'});  // Hello world
-stringd('Hello ${name}', {name: 'World'});  // Hello world
-stringd('Hello :{name%}', {name: 'World'}); // Hello world
-stringd('Hello %{name%}', {name: 'World'}); // Hello world
-stringd('Hello ${name%}', {name: 'World'}); // Hello world
+stringd('Hello :{name}', {name: 'World'});  // Hello World
+stringd('Hello %{name}', {name: 'World'});  // Hello World
+stringd('Hello ${name}', {name: 'World'});  // Hello World
+stringd('Hello :{name%}', {name: 'World'}); // Hello World
+stringd('Hello %{name%}', {name: 'World'}); // Hello World
+stringd('Hello ${name%}', {name: 'World'}); // Hello World
 ```
 
 
@@ -140,10 +141,10 @@ $ npm run build
 $ npm test
 ```
 ## About
-License: [Apache 2.0][license]
-
+### License
+[Apache 2.0][license]
+### Author
 Miraculous Owonubi: [[email]](mailto:omiraculous@gmail.com) <https://github.com/Miraclx>
-
 
 [npm]:  https://github.com/npm/npm "The Node Package Manager"
 [jest]:  https://github.com/facebook/jest "Delightful JavaScript Testing"
