@@ -1,38 +1,40 @@
-STRING-D
-========================================
+# STRING-D
+
 > NodeJS String Variable Parser
+
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
 
 Create parsable strings using template formats by argument mapping.
 
 Similar to [printf][printf] but supports nesting and exclusive recursions
 
-[![NPM](https://nodei.co/npm/stringd.png?stars&downloads)](https://nodei.co/npm/stringd/)
+[![NPM][npm-image-url]][npm-url]
 
 ## Installing
 
 Via [NPM][npm]:
 
 ``` bash
-$ npm install stringd
+npm install stringd
 ```
 
 ## Usage
 
 ``` javascript
-// CommonJS
+// Node CommonJS
 var stringd = require('stringd');
-var result = stringd(template: string, object: {key: value, ...}, ignore?: string[]);
-
-// ES6
+// Or ES6
 import stringd from 'stringd';
-var result = stringd(template: string, object: {key: value, ...}, ignore?: string[]));
 ```
 
-# API
-## stringd(template, object[, ignore])
-Parse the `template` with the variables stated in `object`, ignore the variables defined in the `ignore` array
+``` html
+<!-- Or in the Browser -->
+<script src="stringd/dist/index.js"></script>
+```
 
-# Examples
+## Examples
+
 ``` javascript
 stringd('Hello :{name}', {name: 'World'});
 // Hello World
@@ -41,9 +43,23 @@ stringd(':{last}, :{first} :{last}', {last: 'Doe', first: 'John'});
 // Doe, John Doe
 ```
 
-# Features
+## API
+
+### stringd(template, object[, ignore])
+
+* `template`: &lt;[string][]&gt;
+* `object`: &lt;[object][]&gt;
+* `ignore`: &lt;[string][][]&gt;
+* Returns: &lt;[string][]&gt;
+
+Parse the `template` with the variables stated in `object`, ignore the variables defined in the `ignore` array
+
+## Features
+
 ### Multi parse methods
+
 Whichever is more comfortable for you would work just fine
+
 ``` javascript
 stringd('Hello :{name}', {name: 'World'});  // Hello World
 stringd('Hello %{name}', {name: 'World'});  // Hello World
@@ -53,8 +69,8 @@ stringd('Hello %{name%}', {name: 'World'}); // Hello World
 stringd('Hello ${name%}', {name: 'World'}); // Hello World
 ```
 
-
 ### Nesting
+
 ``` javascript
 assert.equal('John Davis', stringd(':{name}', {
   name: ':{first} :{last}',
@@ -64,6 +80,7 @@ assert.equal('John Davis', stringd(':{name}', {
 ```
 
 ### Functional Evaluation
+
 ``` javascript
 assert.equal(
   'Hello John Davis, you have contributed $585 in the span of 13 months',
@@ -84,27 +101,33 @@ assert.equal(
 ```
 
 ### Forward Padding, Space
+
 ``` javascript
 assert.equal('   10', stringd(':5{val}', {val: 10}));
 ```
 
 ### End Padding, Space
+
 ``` javascript
 assert.equal('10   ', stringd(':-5{val}', {val: 10}));
 ```
 
 ### Forward Padding, Zero
+
 ``` javascript
 assert.equal('00010', stringd(':05{val}', {val: 10}));
 ```
 
 ### End Padding, Zero
+
 ``` javascript
 assert.equal('10000', stringd(':-05{val}', {val: 10}));
 ```
 
 ### Complex Nesting with exclusive recursion
+
 Recursive nesting is unparsed at the second level, otherwise, it continues until its done parsing the entire string
+
 ``` javascript
 assert.equal(
   'James:{name} :{name} :{data} :{data} :{all} :{name} :{data}Jack :{data}',
@@ -118,27 +141,47 @@ assert.equal(
   })
 );
 ```
+
+### Iterative processing
+
+``` javascript
+assert.equal('      2364', stringd(stringd('::{pad}{price}', {pad: 10}), {price: 2364}))
+```
+
+### Precedence
+
+`stringd` replaces keys in order precedence. Keys that appear first are replaced first
+
+``` javascript
+stringd( // str key appears first
+  stringd(':{tro:{str}}', {str: 'y', 'tro:{str}': ':{tron}'}),
+  { tron: 'Movie', troy: 'Dude' }
+); // Dude
+
+stringd( // str key appears later
+  stringd(':{tro:{str}}', {'tro:{str}': ':{tron}', str: 'y'}),
+  { tron: 'Movie', troy: 'Dude' }
+); // Movie
+```
+
 ## Development
+
 ### Building
-Feel free to clone, use in adherance to the [license][license] and perhaps send pull requests
+
+Feel free to clone, use in adherance to the [license](#license) and perhaps send pull requests
 ```
 $ git clone https://github.com/Miraclx/stringd.git
-$ cd stringd
-$ npm install
-$ # hack on code
-$ npm run build
-$ npm test
-```
 ### Testing
+
 Tests are executed with [Jest][jest]. To use it, simple run `npm install`, it will install
 Jest and its dependencies in your project's `node_modules` directory followed by `npm run build` and finally `npm test`.
 
 To run the tests:
 
 ```bash
-$ npm install
-$ npm run build
-$ npm test
+npm install
+npm run build
+npm test
 ```
 ## About
 ### License
@@ -150,3 +193,12 @@ Miraculous Owonubi: [[email]](mailto:omiraculous@gmail.com) <https://github.com/
 [jest]:  https://github.com/facebook/jest "Delightful JavaScript Testing"
 [printf]:  https://github.com/adaltas/node-printf
 [license]:  LICENSE "Apache 2.0 License"
+
+[npm-url]: https://npmjs.org/package/stringd
+[npm-image]: https://badgen.net/npm/node/stringd
+[npm-image-url]: https://nodei.co/npm/stringd.png?stars&downloads
+[downloads-url]: https://npmjs.org/package/stringd
+[downloads-image]: https://badgen.net/npm/dm/stringd
+
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type
+[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
