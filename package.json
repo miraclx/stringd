@@ -12,8 +12,7 @@
     "node": ">=8"
   },
   "files": [
-    "lib/",
-    "test",
+    "dist",
     "typings"
   ],
   "keywords": [
@@ -55,7 +54,8 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "jest": "^24.1.0"
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4"
   },
   "homepage": "https://github.com/Miraclx/stringd#readme",
   "directories": {
