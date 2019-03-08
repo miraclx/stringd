@@ -31,10 +31,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Miraclx/stringd.git"
+    "url": "git+https://github.com/miraclx/stringd.git"
   },
   "bugs": {
-    "url": "https://github.com/Miraclx/stringd/issues"
+    "url": "https://github.com/miraclx/stringd/issues"
   },
   "license": "Apache-2.0",
   "babel": {
@@ -57,7 +57,7 @@
     "jest": "^24.1.0",
     "prettier": "^1.16.4"
   },
-  "homepage": "https://github.com/Miraclx/stringd#readme",
+  "homepage": "https://github.com/miraclx/stringd#readme",
   "directories": {
     "lib": "lib",
     "test": "test"

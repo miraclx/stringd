@@ -169,8 +169,16 @@ stringd( // str key appears later
 ### Building
 
 Feel free to clone, use in adherance to the [license](#license) and perhaps send pull requests
+
+``` bash
+git clone https://github.com/miraclx/stringd.git
+cd stringd
+npm install
+# hack on code
+npm run build
+npm test
 ```
-$ git clone https://github.com/Miraclx/stringd.git
+
 ### Testing
 
 Tests are executed with [Jest][jest]. To use it, simple run `npm install`, it will install
@@ -183,16 +191,16 @@ npm install
 npm run build
 npm test
 ```
-## About
-### License
-[Apache 2.0][license]
-### Author
-Miraculous Owonubi: [[email]](mailto:omiraculous@gmail.com) <https://github.com/Miraclx>
+
+## License
+
+[Apache 2.0][license] © **Miraculous Owonubi** ([@miraclx][author-url]) &lt;omiraculous@gmail.com&gt;
 
 [npm]:  https://github.com/npm/npm "The Node Package Manager"
 [jest]:  https://github.com/facebook/jest "Delightful JavaScript Testing"
 [printf]:  https://github.com/adaltas/node-printf
 [license]:  LICENSE "Apache 2.0 License"
+[author-url]: https://github.com/miraclx
 
 [npm-url]: https://npmjs.org/package/stringd
 [npm-image]: https://badgen.net/npm/node/stringd
