@@ -23,7 +23,7 @@ npm install stringd
 
 ``` javascript
 // Node CommonJS
-var stringd = require('stringd');
+const stringd = require('stringd');
 // Or ES6
 import stringd from 'stringd';
 ```
