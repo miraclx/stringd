@@ -26,6 +26,8 @@
     "output",
     "parser",
     "format",
+    "variable",
+    "string variable",
     "formatting"
   ],
   "author": "Miraculous Owonubi <omiraculous@gmail.com>",
