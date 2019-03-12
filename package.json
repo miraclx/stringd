@@ -13,7 +13,7 @@
     "postversion": "npm run push"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=1"
   },
   "files": [
     "dist",
@@ -46,7 +46,15 @@
   "babel": {
     "presets": [
       "airbnb",
-      "@babel/preset-env"
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "targets": {
+            "node": 1
+          }
+        }
+      ]
     ]
   },
   "devDependencies": {
@@ -68,5 +76,7 @@
     "lib": "lib",
     "test": "test"
   },
-  "dependencies": {}
+  "dependencies": {
+    "core-js": "^2.6.5"
+  }
 }
