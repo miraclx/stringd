@@ -6,10 +6,11 @@
   "types": "typings/lib.d.ts",
   "scripts": {
     "test": "jest",
+    "push": "git push github master && git push gitlab master",
     "build": "babel lib -d dist",
     "preversion": "npm test",
     "version": "npm run build",
-    "postversion": "git push gitlab master && git push github master"
+    "postversion": "npm run push"
   },
   "engines": {
     "node": ">=8"
