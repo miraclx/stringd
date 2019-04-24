@@ -1,4 +1,8 @@
-export interface ParsedString<T> extends String { }
+export = stringd;
+
+declare namespace stringd {
+  export interface ParsedString<T> extends String { }
+}
 
 /**
  * Parse a template, replace parts with specified values
@@ -6,9 +10,5 @@ export interface ParsedString<T> extends String { }
  * @param object Object containing the object parts with replaceable values
  * @param skip Part of the object to skip when checking
  */
-declare function stringd<T = {}>(template: string, object: T): ParsedString<T>;
-declare function stringd<T = {}>(template: string, object: T, skip: string[]): ParsedString<T>;
-
-declare module "stringd" {
-  export = stringd;
-}
+declare function stringd<T = {}>(template: string, object: T): stringd.ParsedString<T>;
+declare function stringd<T = {}>(template: string, object: T, skip: string[]): stringd.ParsedString<T>;
