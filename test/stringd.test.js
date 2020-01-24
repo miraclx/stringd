@@ -10,7 +10,7 @@ test('very complex nesting, with exclusive recursion', () => {
       data: ':{name} :{all}',
       all: ':{name} :{misc} :{data} :{all} :{name} :{misc}',
     }),
-  ).toBe('James:{name} :{name} :{data} :{data} :{all} :{name} :{data}Jack :{data}');
+  ).toBe('James:{name} :{name} :{data} :{data} :{all} :{name} :{data}Jack James:{data}Jack James:{data}Jack :{misc} :{data} :{all} James:{data}Jack :{misc}');
 });
 
 test('forward padding', () => {

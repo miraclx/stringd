@@ -131,7 +131,7 @@ Recursive nesting is unparsed at the second level, otherwise, it continues until
 
 ``` javascript
 assert.equal(
-  'James:{name} :{name} :{data} :{data} :{all} :{name} :{data}Jack :{data}',
+  'James:{name} :{name} :{data} :{data} :{all} :{name} :{data}Jack James:{data}Jack James:{data}Jack :{misc} :{data} :{all} James:{data}Jack :{misc}',
   stringd(':{name} :{misc}', {
     name: ':{first}:{data}:{last}',
     first: 'James',
