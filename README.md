@@ -80,6 +80,21 @@ assert.equal('John Davis', stringd(':{name}', {
 }));
 ```
 
+### Extended, Variable Passing
+
+``` javascript
+assert.equal(
+  'Age Difference = [32 - 25]  = [57]',
+  stringd(
+    stringd('Age Difference = [:{age1} - :{age2}]  = [:{add(:{age1}, :{age2})}]', {
+      age1: 32,
+      age2: 25,
+    }),
+    {add: (_, data) => data.split(',').reduce((a, v) => a + +v.trim(), 0)},
+  ),
+);
+```
+
 ### Functional Evaluation
 
 ``` javascript
