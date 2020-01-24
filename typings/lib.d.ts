@@ -5,10 +5,10 @@ declare namespace stringd {
 }
 
 /**
- * Parse a template, replace parts with specified values
- * @param template Template to be parsed
- * @param object Object containing the object parts with replaceable values
- * @param skip Part of the object to skip when checking
+ * Parse a template, replacing variable sections with flexibly defined values
+ * @param tmp String template template to be parsed
+ * @param props Object containing the properties for variables to be replaced with
+ * @param ignore Tags within a snippet of a string to be ignored. (used specifically to avoid tag repetition/recursion)
  */
-declare function stringd<T = {}>(template: string, object: T): stringd.ParsedString<T>;
-declare function stringd<T = {}>(template: string, object: T, skip: string[]): stringd.ParsedString<T>;
+declare function stringd<T = {}>(tmp: string, props: T): stringd.ParsedString<T>;
+declare function stringd<T = {}>(tmp: string, props: T, ignore: string[]): stringd.ParsedString<T>;

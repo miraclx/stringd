@@ -47,12 +47,13 @@ stringd(':{last}, :{first} :{last}', {last: 'Doe', first: 'John'});
 
 ### stringd(template, object[, ignore])
 
-* `template`: &lt;[string][]&gt;
-* `object`: &lt;[object][]&gt;
+* `tmp`: &lt;[string][]&gt;
+* `props`: &lt;[object][]&gt;
 * `ignore`: &lt;[string][][]&gt;
 * Returns: &lt;[string][]&gt;
 
-Parse the `template` with the variables stated in `object`, ignore the variables defined in the `ignore` array
+Parse the `tmp` string, replacing variable sections with flexibly defined values within the `props` object
+String tags within the `ignore` array are skipped in the process. (used specifically to avoid repetition/recursion)
 
 ## Features
 
