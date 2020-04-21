@@ -1,6 +1,6 @@
 {
   "name": "stringd",
-  "version": "1.7.1",
+  "version": "2.0.0",
   "description": "A string variable parser for JavaScript",
   "main": "dist/lib.js",
   "types": "typings/lib.d.ts",
