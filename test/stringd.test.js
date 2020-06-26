@@ -102,3 +102,33 @@ test('functional evaluation', () => {
     }),
   ).toBe('Hello John Davis, you have contributed $585 in the span of 13 months');
 });
+
+test('empty data in args injection', () => {
+  expect(stringd(':{greet()}', {greet: 'Hello'})).toBe('Hello');
+});
+
+test('discarded data in args injection', () => {
+  expect(stringd(':{greet(World)}', {greet: 'Hello'})).toBe('Hello');
+});
+
+test('single data in args injection', () => {
+  expect(stringd(':{greet(World)}', {greet: (_, names) => `Hello, ${names.args[0]}`})).toBe('Hello, World');
+});
+
+test('multiple data in args injection', () => {
+  expect(
+    stringd(':{greet(Guys, World)}.', {greet: (_, names) => names.args.map(name => `Hello, ${name.trim()}`).join('; ')}),
+  ).toBe('Hello, Guys; Hello, World.');
+});
+
+test('matched data in args injection', () => {
+  expect(
+    stringd(':{greet(Guys, post=How are you doing?, World)}', {
+      greet: (_, names) =>
+        names.args
+          .map(name => `Hello, ${name.trim()}`)
+          .join('; ')
+          .concat('. ', names.matched.post),
+    }),
+  ).toBe('Hello, Guys; Hello, World. How are you doing?');
+});
