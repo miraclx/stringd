@@ -22,7 +22,7 @@ test('extended variable data passing', () => {
         age1: 32,
         age2: 25,
       }),
-      {add: (_, data) => data.split(',').reduce((a, v) => a + +v.trim(), 0)},
+      {add: (_, data) => data.args.reduce((a, v) => a + +v.trim(), 0)},
     ),
   ).toBe('Age Difference = [32 + 25]  = [57]');
 });
