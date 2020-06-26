@@ -2,8 +2,16 @@ export = stringd;
 
 declare namespace stringd {
   export interface ParsedString<T> extends String { }
+
+  export interface DataObject {
+    args: string[],
+    matched: {
+      [key: string]: string;
+    }
+  }
+  
   export interface PropSchema {
-    [key: string]: string;
+    [key: string]: string | ((object: this, data?: DataObject) => any);
   }
 }
 
