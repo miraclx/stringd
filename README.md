@@ -84,9 +84,9 @@ assert.equal('John Davis', stringd(':{name}', {
 
 ``` javascript
 assert.equal(
-  'Age Difference = [32 - 25]  = [57]',
+  'Age Difference = [32 + 25]  = [57]',
   stringd(
-    stringd('Age Difference = [:{age1} - :{age2}]  = [:{add(:{age1}, :{age2})}]', {
+    stringd('Age Difference = [:{age1} + :{age2}]  = [:{add(:{age1}, :{age2})}]', {
       age1: 32,
       age2: 25,
     }),

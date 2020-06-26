@@ -18,13 +18,13 @@ test('very complex nesting, with exclusive recursion', () => {
 test('extended variable data passing', () => {
   expect(
     stringd(
-      stringd('Age Difference = [:{age1} - :{age2}]  = [:{add(:{age1}, :{age2})}]', {
+      stringd('Age Difference = [:{age1} + :{age2}]  = [:{add(:{age1}, :{age2})}]', {
         age1: 32,
         age2: 25,
       }),
       {add: (_, data) => data.split(',').reduce((a, v) => a + +v.trim(), 0)},
     ),
-  ).toBe('Age Difference = [32 - 25]  = [57]');
+  ).toBe('Age Difference = [32 + 25]  = [57]');
 });
 
 test('forward padding', () => {
