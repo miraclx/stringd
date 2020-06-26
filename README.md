@@ -95,6 +95,19 @@ assert.equal(
 );
 ```
 
+``` javascript
+assert.equal(
+  'Hello, Guys; Hello, World. How are you doing?',
+  stringd(':{greet(Guys, post=How are you doing?, World)}', {
+    greet: (_, names) =>
+      names.args
+        .map(name => `Hello, ${name.trim()}`)
+        .join('; ')
+        .concat('. ', names.matched.post),
+  }),
+);
+```
+
 ### Functional Evaluation
 
 ``` javascript
