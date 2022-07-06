@@ -1,4 +1,4 @@
-import stringd from '../dist/lib';
+import stringd from './index.js';
 
 test('very complex nesting, with exclusive recursion', () => {
   expect(

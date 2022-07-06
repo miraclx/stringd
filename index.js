@@ -1,6 +1,3 @@
-require('core-js/es/string/pad-end');
-require('core-js/es/string/pad-start');
-
 const specTify = ({tag, flags} = {}) => new RegExp(`[%$:]([+-]?\\d+)?{(${tag || '[^()}%]+?'})(?:\\(([^()}]*?)\\))?%?}`, flags);
 
 /**
@@ -10,15 +7,16 @@ const specTify = ({tag, flags} = {}) => new RegExp(`[%$:]([+-]?\\d+)?{(${tag || 
  */
 function parseDataArgument(value) {
   const exceptEscapeFromFilterPart = str => new RegExp(`(?=[^{])${str}(?=[^}])`, 'g');
-  return (value
-    ? value
-        .split(exceptEscapeFromFilterPart(','))
-        .map(part =>
-          part
-            .split(exceptEscapeFromFilterPart('='))
-            .map(sect => sect.replace(/^\s*["']?|["']?\s*$/g, '').replace(/{([^\s]+?)}/g, '$1')),
-        )
-    : []
+  return (
+    value
+      ? value
+          .split(exceptEscapeFromFilterPart(','))
+          .map(part =>
+            part
+              .split(exceptEscapeFromFilterPart('='))
+              .map(sect => sect.replace(/^\s*["']?|["']?\s*$/g, '').replace(/{([^\s]+?)}/g, '$1')),
+          )
+      : []
   ).reduce((all, item) => (item.length === 2 ? ([, all.matched[item[0]]] = item) : all.args.push(...item), all), {
     args: [],
     matched: {},
@@ -36,7 +34,7 @@ function parseDataArgument(value) {
  * @copyright (c) 2020 Miraculous Owonubi
  */
 
-function stringd(temp, props = {}, ignore = []) {
+export default function stringd(temp, props = {}, ignore = []) {
   if (typeof temp !== 'string') throw new TypeError('<temp> must be a valid string');
   if (props && typeof props !== 'object') throw new TypeError('<props>, if defined, must be a valid object');
   if (ignore && !Array.isArray(ignore)) throw new TypeError('<ignore>, if defined, must be a valid array');
@@ -66,5 +64,3 @@ function stringd(temp, props = {}, ignore = []) {
       : null)(temp.match(glob));
   return temp;
 }
-
-if (typeof module !== 'undefined') module.exports = stringd;

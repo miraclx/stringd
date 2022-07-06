@@ -22,20 +22,8 @@ npm install stringd
 ## Usage
 
 ``` javascript
-// Node CommonJS
-const stringd = require('stringd');
-// Or ES6
 import stringd from 'stringd';
-```
 
-``` html
-<!-- Or in the Browser -->
-<script src="stringd/dist/index.js"></script>
-```
-
-## Examples
-
-``` javascript
 stringd('Hello :{name}', {name: 'World'});
 // Hello World
 
@@ -195,29 +183,25 @@ stringd( // str key appears later
 
 ## Development
 
-### Building
-
-Feel free to clone, use in adherance to the [license](#license) and perhaps send pull requests
+Feel free to clone, use in adherance to the [license](#license). Pull requests are very much welcome.
 
 ``` bash
 git clone https://github.com/miraclx/stringd.git
 cd stringd
 npm install
 # hack on code
-npm run build
 npm test
 ```
 
 ### Testing
 
 Tests are executed with [Jest][jest]. To use it, simple run `npm install`, it will install
-Jest and its dependencies in your project's `node_modules` directory followed by `npm run build` and finally `npm test`.
+Jest and its dependencies in your project's `node_modules` directory and finally `npm test`.
 
 To run the tests:
 
 ```bash
 npm install
-npm run build
 npm test
 ```
 
