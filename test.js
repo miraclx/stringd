@@ -1,4 +1,4 @@
-import stringd from '../dist/lib';
+const stringd = require('./index');
 
 test('very complex nesting, with exclusive recursion', () => {
   expect(

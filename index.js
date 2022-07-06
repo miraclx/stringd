@@ -1,6 +1,3 @@
-require('core-js/es/string/pad-end');
-require('core-js/es/string/pad-start');
-
 const specTify = ({tag, flags} = {}) => new RegExp(`[%$:]([+-]?\\d+)?{(${tag || '[^()}%]+?'})(?:\\(([^()}]*?)\\))?%?}`, flags);
 
 /**
@@ -10,15 +7,16 @@ const specTify = ({tag, flags} = {}) => new RegExp(`[%$:]([+-]?\\d+)?{(${tag || 
  */
 function parseDataArgument(value) {
   const exceptEscapeFromFilterPart = str => new RegExp(`(?=[^{])${str}(?=[^}])`, 'g');
-  return (value
-    ? value
-        .split(exceptEscapeFromFilterPart(','))
-        .map(part =>
-          part
-            .split(exceptEscapeFromFilterPart('='))
-            .map(sect => sect.replace(/^\s*["']?|["']?\s*$/g, '').replace(/{([^\s]+?)}/g, '$1')),
-        )
-    : []
+  return (
+    value
+      ? value
+          .split(exceptEscapeFromFilterPart(','))
+          .map(part =>
+            part
+              .split(exceptEscapeFromFilterPart('='))
+              .map(sect => sect.replace(/^\s*["']?|["']?\s*$/g, '').replace(/{([^\s]+?)}/g, '$1')),
+          )
+      : []
   ).reduce((all, item) => (item.length === 2 ? ([, all.matched[item[0]]] = item) : all.args.push(...item), all), {
     args: [],
     matched: {},
